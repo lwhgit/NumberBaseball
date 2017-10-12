@@ -51,14 +51,14 @@ int main() {
 		free(input);
 	} else {
 		printf("Wrong Number!");
-		return;
+		return 0;
 	}
 	return 0;
 }
 
 char* createAnswer(int length) {
 	char base[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-	char* string = (char*) malloc(sizeof(char) * length);
+	char* string = (char*) malloc(sizeof(char) * length + 1);
 	
 	int i = 0;
 	for (i = 0;i < 9;i ++) {
@@ -73,11 +73,15 @@ char* createAnswer(int length) {
 		string[i] = base[i];
 	}
 	
+	string[length] = 0;
+	
 	for (i = 0;i < length;i ++) {	//
 		printf("%c ", string[i]);	// DELETE
 	}								//
 	
 	printf("\n");
+	
+	string[length] = 0;
 
 	return string;
 }
